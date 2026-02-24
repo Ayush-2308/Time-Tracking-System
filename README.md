@@ -1,100 +1,112 @@
-# Time Tracking app with Flutter & Firebase
+# 🚀 Time Tracking App (Flutter + Firebase)
 
-A time tracking application built with Flutter & Firebase: 
+A modern Time Tracking Application built using Flutter, Firebase, and Riverpod Architecture. This app helps users manage jobs, track work entries, and generate daily reports with real-time cloud sync.
 
-![](/.github/images/time-tracker-screenshots.png)
+## 📱 Preview
 
-This is intended as a **reference app** based on my [Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/).
+🌐 Live Demo (Web):
+https://starter-architecture-flutter.web.app
 
-> **Note**: this project used to be called "Started Architecture for Flutter & Firebase" (based on this [old article](https://codewithandrea.com/videos/starter-architecture-flutter-firebase/)). As of January 2023, it follows my updated [Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/), using the latest packages.
+## ✨ Features
 
-## Flutter web preview
+* 🔐 User authentication (Email & Password)
 
-A Flutter web preview of the app is available here:
+* 🧭 Simple onboarding flow
 
-- [Time Tracker | Flutter web demo](https://starter-architecture-flutter.web.app)
+* 💼 Job management (Create, Edit, Delete)
 
-## Features
+* ⏱️ Time entry tracking per job
 
-- **Simple onboarding page**
-- **Full authentication flow** (using email & password)
-- **Jobs**: users can view, create, edit, and delete their own private jobs (each job has a name and hourly rate)
-- **Entries**: for each job, user can view, create, edit, and delete the corresponding entries (an entry is a task with a start and end time, with an optional comment)
-- **A report page** that shows a daily breakdown of all jobs, hours worked and pay, along with the totals.
+* 📊 Daily reports with total hours & earnings
 
-All the data is persisted with Firestore and is kept in sync across multiple devices.
+* 🔄 Real-time sync using Cloud Firestore
 
-## Roadmap
+* 🧩 Clean architecture using Riverpod
 
-- [ ] Add missing tests
-- [ ] Stateful Nested Navigation with GoRouter (once [this PR](https://github.com/flutter/packages/pull/2650) is merged)
-- [ ] Use controllers / notifiers consistently across the app (some code still needs to be updated)
-- [ ] Add localization
-- [ ] Use the new Firebase UI packages where useful
-- [ ] Responsive UI
+## 🏗️ Tech Stack
 
-> This is a tentative roadmap. There is no ETA for any of the points above. This is a low priority project and I don't have much time to maintain it.
+* Flutter
 
-## Relevant Articles
+* Firebase Auth
 
-The app is based on my Flutter Riverpod architecture, which is explained in detail here:
+* Cloud Firestore
 
-- [Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
-- [Flutter Project Structure: Feature-first or Layer-first?](https://codewithandrea.com/articles/flutter-project-structure/)
-- [Flutter App Architecture: The Repository Pattern](https://codewithandrea.com/articles/flutter-repository-pattern/)
+* Riverpod
 
-More more info on Riverpod, read this:
+* GoRouter
 
-- [Flutter Riverpod 2.0: The Ultimate Guide](https://codewithandrea.com/articles/flutter-state-management-riverpod/)
+* RxDart
 
-## Packages in use
+* Intl
 
-These are the main packages used in the app:
+## 📂 Project Structure
+lib/
+  * features/
+  * services/
+  * routing/
+  * common_widgets/
+  * utils/
 
-- [Flutter Riverpod](https://pub.dev/packages/flutter_riverpod) for data caching, dependency injection, and more
-- [GoRouter](https://pub.dev/packages/go_router) for navigation
-- [Firebase Auth](https://pub.dev/packages/firebase_auth) for authentication
-- [Cloud Firestore](https://pub.dev/packages/cloud_firestore) as a realtime database
-- [RxDart](https://pub.dev/packages/rxdart) for combining multiple Firestore collections as needed
-- [Intl](https://pub.dev/packages/intl) for currency, date, time formatting
-- [Mocktail](https://pub.dev/packages/mocktail) for testing
-- [Equatable](https://pub.dev/packages/equatable) to reduce boilerplate code in model classes
+Architecture follows Riverpod + Repository Pattern for scalability and maintainability.
 
-See the [pubspec.yaml](pubspec.yaml) file for the complete list.
+## ⚙️ Getting Started
+✅ Prerequisites
 
-## Running the project with Firebase
+* Flutter SDK installed
 
-To use this project with Firebase, follow these steps:
+* Firebase account
 
-- Create a new project with the Firebase console
-- Enable Firebase Authentication, along with the Email/Password Authentication Sign-in provider in the Firebase Console (Authentication > Sign-in method > Email/Password > Edit > Enable > Save)
-- Enable Cloud Firestore
+* Firebase CLI
 
-Then, follow one of the two approaches below. 👇
+* FlutterFire CLI
 
-### 1. Using the CLI
+## 🔥 Firebase Setup (Recommended)
 
-Make sure you have the Firebase CLI and [FlutterFire CLI](https://pub.dev/packages/flutterfire_cli) installed.
+* Create a Firebase project
 
-Then run this on the terminal from the root of this project:
+* Enable:
 
-- Run `firebase login` so you have access to the Firebase project you have created
-- Run `flutterfire configure` and follow all the steps
+  * Authentication → Email/Password
 
-For more info, follow this guide:
+  * Cloud Firestore
 
-- [How to add Firebase to a Flutter app with FlutterFire CLI](https://codewithandrea.com/articles/flutter-firebase-flutterfire-cli/)
+* Run:
 
-### 2. Manual way (not recommended)
+firebase login
+flutterfire configure
+flutter pub get
+flutter run
+## 🛠️ Manual Setup (Alternative)
 
-If you don't want to use FlutterFire CLI, follow these steps instead:
+If not using FlutterFire CLI:
 
-- Register separate iOS, Android, and web apps in the Firebase project settings.
-- On Android, use `com.example.starter_architecture_flutter_firebase` as the package name.
-- then, [download and copy](https://firebase.google.com/docs/flutter/setup#configure_an_android_app) `google-services.json` into `android/app`.
-- On iOS, use `com.example.starterArchitectureFlutterFirebase` as the bundle ID.
-- then, [download and copy](https://firebase.google.com/docs/flutter/setup#configure_an_ios_app) `GoogleService-Info.plist` into `iOS/Runner`, and add it to the Runner target in Xcode.
+* Add Android app → download google-services.json → place in android/app
 
-That's it. Have fun!
+* Add iOS app → download GoogleService-Info.plist → place in ios/Runner
 
-## [License: MIT](LICENSE.md)
+## 📌 Roadmap
+
+ * Add unit & widget tests
+
+ * Improve responsive UI
+
+ * Add localization
+
+ * Migrate fully to latest Firebase UI
+
+ * Refactor remaining controllers
+
+## 🤝 Contributing
+
+* Contributions are welcome!
+
+* Fork the repo
+
+* Create your feature branch
+
+* Commit your changes
+
+* Push to the branch
+
+* Open a Pull Request
+
